@@ -1,0 +1,15 @@
+<div *ngIf="option">
+    <h2>{{option.id ? 'Edit Option' : 'Add Option'}}</h2>
+    <div>Stock: 
+        <select [(ngModel)]="option.stockId">
+            <option>Select....</option>
+            <option *ngFor="let stock of stocks; let i = index" [value]="stocks[i].id">
+                {{stocks[i].name}}
+            </option>
+        </select>
+    </div>
+    <div>Name: <input [(ngModel)]="option.name" placeholder="Name" /></div>
+    <button (click)="updateOption()" *ngIf="option.id">Save</button>
+    <button (click)="deleteOption()" *ngIf="option.id">Delete</button>
+    <button (click)="addOption()" *ngIf="!option.id">Add</button>
+</div>

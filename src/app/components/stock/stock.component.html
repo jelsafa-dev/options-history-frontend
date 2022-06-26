@@ -1,0 +1,7 @@
+<div *ngIf="stock">
+    <h2>{{stock.id ? 'Edit Stock' : 'Add Stock'}}</h2>
+    <div>Name: <input [(ngModel)]="stock.name" placeholder="Name" /></div>
+    <button (click)="updateStock()" *ngIf="stock.id">Save</button>
+    <button (click)="deleteStock()" *ngIf="stock.id">Delete</button>
+    <button (click)="addStock()" *ngIf="!stock.id">Add</button>
+</div>
